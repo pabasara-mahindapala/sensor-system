@@ -9,14 +9,14 @@ import { Sensor } from "./sensors.model";
 export class SensorsComponent {
 	sensors: Sensor[] = [
 		{
-			key: "Outdoor Temperature",
+			id: 1,
 			title: "Outdoor Temperature",
 			tag: "Online",
 			url: "https://github.com/sketch7/ssv-core",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
 		},
 		{
-			key: "Boiler 1 Temp",
+			id: 2,
 			title: "Boiler 1 Temp",
 			tag: "Error",
 			url: "https://github.com/sketch7/signalr-client",
@@ -24,7 +24,7 @@ export class SensorsComponent {
 		},
 
 		{
-			key: "Boiler 2 Temp",
+			id: 3,
 			title: "Boiler 2 Temp",
 			tag: "Online",
 			url: "https://github.com/sketch7/ngx.command",
@@ -32,7 +32,7 @@ export class SensorsComponent {
 				"Donec mi velit, rhoncus at dolor luctus, fermentum vehicula ex",
 		},
 		{
-			key: "Pipe Temperature",
+			id: 4,
 			title: "Pipe Temperature",
 			tag: "Warning",
 			url: "https://github.com/sketch7/angular-skeleton-app",

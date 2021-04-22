@@ -1,9 +1,9 @@
 <nav #menu class="navbar navbar-expand-md navbar-dark fixed-top">
 	<a class="navbar-brand" routerLink="/">
 		{{appTitle}}
-		<span *ngIf="isDebug" class="app-version">
+		<!-- <span *ngIf="isDebug" class="app-version">
 			{{appVersion}}
-		</span>
+		</span> -->
 	</a>
 	<button #collapser class="navbar-toggler" type="button" aria-controls="mainNavBar"
 		[attr.aria-expanded]="isMenuOpened" aria-label="Toggle navigation" (click)="isMenuOpened = !isMenuOpened">

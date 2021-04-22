@@ -2,7 +2,7 @@
 export type TagType = "Online" | "Error" | "Warning";
 
 export interface Sensor {
-	key: string;
+	id: number;
 	title: string;
 	description?: string;
 	url: string;
