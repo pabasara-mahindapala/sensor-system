@@ -1,0 +1,10 @@
+<ng-container *ngIf="sensor">
+	<div class="sensor-container sensor-tag--{{sensor.tag}}">
+		<span class="sensor-tag badge">{{sensor.tag}}</span>
+		<i class="sensor-icon fa fa-th-large fa-5x" aria-hidden="true"></i>️
+
+		<h4 class="sensor-title">{{sensor.title}}</h4>
+
+	</div>
+	<span class="sensor-description">{{sensor.description}}</span>
+</ng-container>

@@ -1,0 +1,14 @@
+<h1>Sensors</h1>
+<p>
+	View the status of each sensor
+</p>
+
+<ul class="sensors-container">
+	<li *ngFor="let sensor of sensors">
+
+		<a target="_blank" rel="noopener" [href]="sensor.url">
+			<app-sensor [sensor]="sensor"></app-sensor>
+		</a>
+
+	</li>
+</ul>

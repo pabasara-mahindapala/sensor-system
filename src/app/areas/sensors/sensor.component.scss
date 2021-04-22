@@ -1,28 +1,28 @@
 @import "mixins";
 @import "vars";
 
-$project-bg-color: rgba($black, 0.4) !default;
-$project-text-color: $concrete !default;
-$project-text-hover-color: $white !default;
-$project-icon-hover-color: $primary-highlight-color !default;
-$project-description-color: $text-semi-diffuse-color !default;
+$sensor-bg-color: rgba($black, 0.4) !default;
+$sensor-text-color: $concrete !default;
+$sensor-text-hover-color: $white !default;
+$sensor-icon-hover-color: $primary-highlight-color !default;
+$sensor-description-color: $text-semi-diffuse-color !default;
 
 :host {
 	display: block;
 	position: relative;
 	width: 230px;
-	color: $project-text-color;
+	color: $sensor-text-color;
 	transition: 0.2s ease-in-out;
 
 	&:hover {
-		.project {
+		.sensor {
 			&-container {
 				transition: 0.2s ease-in-out;
 				@include shadow-6dp;
 			}
 
 			&-title {
-				color: $project-text-hover-color;
+				color: $sensor-text-hover-color;
 			}
 
 			&-icon {
@@ -30,26 +30,20 @@ $project-description-color: $text-semi-diffuse-color !default;
 			}
 
 			&-tag {
-				&--csharp {
-					.project-icon {
-						color: $electric-violet;
+				&--Online {
+					.sensor-icon {
+						color: $eucalyptus;
 					}
 				}
 
-				&--angular {
-					.project-icon {
+				&--Error {
+					.sensor-icon {
 						color: $crimson;
 					}
 				}
 
-				&--aurelia {
-					.project-icon {
-						color: $cerise;
-					}
-				}
-
-				&--javascript {
-					.project-icon {
+				&--Warning {
+					.sensor-icon {
 						color: $amber;
 					}
 				}
@@ -58,7 +52,7 @@ $project-description-color: $text-semi-diffuse-color !default;
 	}
 }
 
-.project {
+.sensor {
 	&-container {
 		padding-top: 1.5em;
 		display: flex;
@@ -67,7 +61,7 @@ $project-description-color: $text-semi-diffuse-color !default;
 		border-radius: 5px;
 
 		min-height: 160px;
-		background-color: $project-bg-color;
+		background-color: $sensor-bg-color;
 		@include shadow-4dp;
 	}
 
@@ -78,7 +72,7 @@ $project-description-color: $text-semi-diffuse-color !default;
 
 	&-description {
 		display: block;
-		color: $project-description-color;
+		color: $sensor-description-color;
 		font-size: $font-size-s;
 		text-align: center;
 
@@ -91,27 +85,20 @@ $project-description-color: $text-semi-diffuse-color !default;
 		right: 0.25em;
 		top: 0.25em;
 
-		&--csharp {
-			.project-tag {
-				background: $electric-violet;
+		&--Online {
+			.sensor-tag {
+				background: $eucalyptus;
 			}
 		}
 
-		&--angular {
-			.project-tag {
+		&--Error {
+			.sensor-tag {
 				background: $crimson;
 			}
 		}
 
-		&--aurelia {
-			.project-tag {
-				background: $cerise;
-			}
-		}
-
-		&--javascript {
-			.project-tag {
-				color: $black;
+		&--Warning {
+			.sensor-tag {
 				background: $amber;
 			}
 		}
