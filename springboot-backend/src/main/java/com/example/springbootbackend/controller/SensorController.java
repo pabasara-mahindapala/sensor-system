@@ -15,12 +15,12 @@ public class SensorController {
     @Autowired
     private SensorRepository sensorRepository;
 
-    // get all employees
+    // get all sensors
     @GetMapping("/sensors")
     public List<Sensor> getAllEmployees(){
         return sensorRepository.findAll();
     }
-    // create employee rest api
+    // create sensor rest api
     @PostMapping("/sensors")
     public Sensor createEmployee(@RequestBody Sensor sensor) {
         return sensorRepository.save(sensor);
