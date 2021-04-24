@@ -17,12 +17,12 @@ public class SensorController {
 
     // get all sensors
     @GetMapping("/sensors")
-    public List<Sensor> getAllEmployees(){
+    public List<Sensor> getAllSensors(){
         return sensorRepository.findAll();
     }
     // create sensor rest api
     @PostMapping("/sensors")
-    public Sensor createEmployee(@RequestBody Sensor sensor) {
+    public Sensor createSensor(@RequestBody Sensor sensor) {
         return sensorRepository.save(sensor);
     }
 }
