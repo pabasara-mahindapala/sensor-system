@@ -21,7 +21,7 @@ $sensor-description-color: $text-semi-diffuse-color !default;
 				@include shadow-6dp;
 			}
 
-			&-title {
+			&-sensorID {
 				color: $sensor-text-hover-color;
 			}
 
@@ -29,7 +29,7 @@ $sensor-description-color: $text-semi-diffuse-color !default;
 				transition: 0.3s ease-in-out;
 			}
 
-			&-tag {
+			status {
 				&--Online {
 					.sensor-icon {
 						color: $eucalyptus;
@@ -65,7 +65,7 @@ $sensor-description-color: $text-semi-diffuse-color !default;
 		@include shadow-4dp;
 	}
 
-	&-title {
+	&-sensorID {
 		margin: 0;
 		font-size: $font-size-m;
 	}
@@ -80,25 +80,25 @@ $sensor-description-color: $text-semi-diffuse-color !default;
 		line-height: 18px;
 	}
 
-	&-tag {
+	&-status {
 		position: absolute;
 		right: 0.25em;
 		top: 0.25em;
 
 		&--Online {
-			.sensor-tag {
+			.sensor-status {
 				background: $eucalyptus;
 			}
 		}
 
 		&--Error {
-			.sensor-tag {
+			.sensor-status {
 				background: $crimson;
 			}
 		}
 
 		&--Warning {
-			.sensor-tag {
+			.sensor-status {
 				background: $amber;
 			}
 		}
