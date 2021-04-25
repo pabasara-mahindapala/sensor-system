@@ -29,8 +29,9 @@ public class SensorService {
 	createSensor(Sensor sensor) {
 
 		if (sensor.getDataValue() > 35) {
-			sensor.setStatus("yes");
-
+			sensor.setStatus("Warning");
+		} else {
+			sensor.setStatus("Online");
 		}
 		return sensorRepository.save(sensor);
 	}
