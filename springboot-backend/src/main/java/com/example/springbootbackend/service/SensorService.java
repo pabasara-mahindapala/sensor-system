@@ -27,7 +27,7 @@ public class SensorService {
 		return sensorRepository.findAll();
 	}
 
-    //Sensor Alert
+    //Sensor Alert with mail
 	public Sensor
 
 	createSensor(Sensor sensor) {
