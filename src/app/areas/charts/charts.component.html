@@ -1,1 +1,7 @@
-<div id="chartContainer" style="height: 300px; width: 100%;">
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<div class="form-group">
+    <label for="sensor" style="margin-top: 50px;">Sensor:</label>
+    <select [ngModel]="sensorID" (ngModelChange)="onChange($event)" name="sel2" class="form-control" style="width: 25%;">
+        <option [value]="s" *ngFor="let s of sensorList">{{s}}</option>
+    </select>
+</div>
