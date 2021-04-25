@@ -3,12 +3,15 @@ package com.example.springbootbackend.controller;
 
 import com.example.springbootbackend.model.Sensor;
 import com.example.springbootbackend.repository.SensorRepository;
+import com.example.springbootbackend.service.MailService;
 import com.example.springbootbackend.service.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1/")
 public class SensorController {
@@ -24,11 +27,16 @@ public class SensorController {
 	// get all sensors
 	@GetMapping("/sensors")
 	public List<Sensor> getAllSensors(){
+		
+
+
 		return sensorService.findAll();
 	}
     // create sensor rest api
     @PostMapping("/sensors")
     public Sensor createSensor(@RequestBody Sensor sensor) {
-        return sensorService.createSensor(sensor);
+
+
+    	return sensorService.createSensor(sensor);
     }
 }

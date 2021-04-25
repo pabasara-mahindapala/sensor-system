@@ -1,29 +1,32 @@
 package com.example.springbootbackend.service;
-import java.io.IOException;
-import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.io.IOException;
+import java.util.Properties;
+
+@Service
 public class MailService {
+
+	private final JavaMailSender javaMailSender;
+
+	public MailService(JavaMailSender javaMailSender) {
+		this.javaMailSender = javaMailSender;
+	}
+
 	public void sendMail() throws IOException {
-	//	Email from = new Email("test@example.com");
-	//	Email to = new Email("pmjayasinghe1025@gmail.com"); // use your own email address here
 
-		String subject = "Sending with Twilio SendGrid is Fun";
-	//	Content content = new Content("text/html", "and <em>easy</em> to do anywhere with <strong>Java</strong>");
-
-	//	Mail mail = new Mail(from, subject, to, content);
-
-	//	SendGrid sg = new SendGrid(System.getenv("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"));
-	//	Request request = new Request();
-
-	//	request.setMethod(Method.POST);
-	//	request.setEndpoint("mail/send");
-	//	request.setBody(mail.build());
-
-	//	Response response = sg.api(request);
-
-	//	System.out.println(response.getStatusCode());
-	//	System.out.println(response.getHeaders());
-	//	System.out.println(response.getBody());
+		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		mailMessage.setFrom("kashulkenuka@gmail.com");
+		mailMessage.setTo("kasulkenuka@gmail.com");
+		mailMessage.setSubject("Alert");
+		mailMessage.setText("temperature high");
+		javaMailSender.send(mailMessage);
 
 
 	}
