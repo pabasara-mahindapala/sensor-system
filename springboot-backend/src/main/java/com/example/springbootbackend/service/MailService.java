@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.IOException;
 import java.util.Properties;
 
-
+@Service
 public class MailService {
 
 	private final JavaMailSender javaMailSender;

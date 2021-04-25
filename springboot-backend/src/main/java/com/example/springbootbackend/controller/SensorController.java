@@ -15,8 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/")
 public class SensorController {
-    @Autowired
-	private JavaMailSender javaMailSender;
+
     @Autowired
 	private SensorService sensorService;
 
@@ -28,11 +27,7 @@ public class SensorController {
 	// get all sensors
 	@GetMapping("/sensors")
 	public List<Sensor> getAllSensors(){
-		try {
-			new MailService(javaMailSender).sendMail();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 
 
 		return sensorService.findAll();
