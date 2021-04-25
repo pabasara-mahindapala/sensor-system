@@ -36,7 +36,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/canvasjs.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -109,7 +111,9 @@
                 "src/assets/styles"
               ]
             },
-            "scripts": []
+            "scripts": [
+              "src/assets/canvasjs.min.js"
+            ]
           }
         },
         "lint": {
