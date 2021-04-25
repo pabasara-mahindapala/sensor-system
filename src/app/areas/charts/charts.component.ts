@@ -1,6 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 declare const CanvasJS: any;
+
+
+interface SensorValue {
+  x: Date;
+  y: number
+}
 
 @Component({
   templateUrl: './charts.component.html',
@@ -8,13 +15,18 @@ declare const CanvasJS: any;
 })
 export class ChartsComponent implements OnInit {
 
+  sensorResponse: any;
+  sensorValues: SensorValue[] = [];
+  sensorID: string | undefined;
+
   constructor(
     private route: ActivatedRoute,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(id);
+    this.sensorID = String(this.route.snapshot.paramMap.get('id'));
+    this.getSensors(this.sensorID);
     var chart = new CanvasJS.Chart("chartContainer",
       {
         title: {
@@ -52,6 +64,18 @@ export class ChartsComponent implements OnInit {
       });
 
     chart.render();
+  }
+
+  getSensors(id: string) {
+    this.http.get("http://localhost:8080/api/v1/sensors" + id).subscribe(result => {
+      this.sensorResponse = result;
+      for (var s in this.sensorResponse) {
+        this.sensorValues.push({
+          x: this.sensorResponse[s].date,
+          y: this.sensorResponse[s].dataValue
+        });
+      }
+    });
   }
 }
 
