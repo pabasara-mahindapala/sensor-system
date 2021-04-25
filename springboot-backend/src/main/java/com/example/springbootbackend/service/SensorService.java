@@ -28,9 +28,7 @@ public class SensorService {
 	}
 
     //Sensor Alert
-	public Sensor
-
-	createSensor(Sensor sensor) {
+	public void createSensor(Sensor sensor) {
 
 		if (sensor.getDataValue() > 35) {
 			try {
@@ -42,6 +40,6 @@ public class SensorService {
 		} else {
 			sensor.setStatus("Online");
 		}
-		return sensorRepository.save(sensor);
+//		return sensorRepository.save(sensor);
 	}
 }

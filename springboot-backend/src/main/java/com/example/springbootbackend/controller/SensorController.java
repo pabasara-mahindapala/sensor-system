@@ -27,7 +27,7 @@ public class SensorController {
 	// get all sensors
 	@GetMapping("/sensors")
 	public List<Sensor> getAllSensors(){
-		
+
 
 
 		return sensorService.findAll();
@@ -37,6 +37,7 @@ public class SensorController {
     public Sensor createSensor(@RequestBody Sensor sensor) {
 
 
-    	return sensorService.createSensor(sensor);
+//    	return sensorService.createSensor(sensor);
+		return sensor;
     }
 }
