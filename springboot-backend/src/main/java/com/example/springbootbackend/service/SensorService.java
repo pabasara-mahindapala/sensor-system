@@ -27,8 +27,15 @@ public class SensorService {
 		return sensorRepository.findAll();
 	}
 
+<<<<<<< HEAD
     //Sensor Alert
 	public void createSensor(Sensor sensor) {
+=======
+    //Sensor Alert with mail
+	public Sensor
+
+	createSensor(Sensor sensor) {
+>>>>>>> 61f4289eecb76f83a9637103dc6e96afa99a3564
 
 		if (sensor.getDataValue() > 35) {
 			try {

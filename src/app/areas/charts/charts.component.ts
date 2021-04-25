@@ -18,6 +18,8 @@ export class ChartsComponent implements OnInit {
   sensorResponse: any;
   sensorValues: SensorValue[] = [];
   sensorID: string | undefined;
+  sensorList: string[] = [];
+  chart: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,11 +28,13 @@ export class ChartsComponent implements OnInit {
 
   ngOnInit(): void {
     this.sensorID = String(this.route.snapshot.paramMap.get('id'));
+    this.getList();
     this.fillChart(this.sensorID);
   }
 
   fillChart(id: string) {
     this.http.get("http://localhost:8080/api/v1/sensors/" + id).subscribe(result => {
+      this.sensorValues = [];
       this.sensorResponse = result;
       for (var s in this.sensorResponse) {
         this.sensorValues.push({
@@ -38,33 +42,55 @@ export class ChartsComponent implements OnInit {
           y: this.sensorResponse[s].dataValue
         });
       }
-      var chart = new CanvasJS.Chart("chartContainer",
-        {
-          title: {
-            text: id
-          },
-
-          axisX: {
-            title: "Time",
-            gridThickness: 1,
-            interval: 10,
-            intervalType: "minute",
-            valueFormatString: "hh:MM",
-            labelAngle: -90
-          },
-          axisY: {
-            title: "Reading"
-          },
-          data: [
-            {
-              type: "line",
-              dataPoints: this.sensorValues
-            }
-          ]
-        });
-
-      chart.render();
+      this.renderChart();
     });
+  }
+
+  getList() {
+    this.http.get("http://localhost:8080/api/v1/sensors").subscribe(result => {
+      this.sensorResponse = result;
+      for (var s in this.sensorResponse) {
+        if (!this.sensorList.find(x => x == this.sensorResponse[s].sensorID)) {
+          this.sensorList.push(this.sensorResponse[s].sensorID);
+        }
+      }
+    });
+  }
+
+  onChange(sensorID: string) {
+    this.sensorID = sensorID;
+    this.fillChart(sensorID);
+    this.chart.title.set("text", sensorID);
+  }
+
+  renderChart() {
+    this.chart = new CanvasJS.Chart("chartContainer",
+      {
+        title: {
+          text: this.sensorID
+        },
+
+        axisX: {
+          title: "Time",
+          gridThickness: 1,
+          interval: 10,
+          intervalType: "minute",
+          valueFormatString: "hh:MM",
+          labelAngle: -90
+        },
+        axisY: {
+          title: "Reading"
+        },
+        data: [
+          {
+            type: "line",
+            dataPoints: this.sensorValues
+          }
+        ]
+      });
+
+
+    this.chart.render();
   }
 }
 
