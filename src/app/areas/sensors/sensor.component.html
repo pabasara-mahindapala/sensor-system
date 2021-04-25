@@ -1,14 +1,14 @@
 <ng-container *ngIf="sensor">
-	<div class="sensor-container sensor-tag--{{sensor.tag}}">
-		<span class="sensor-tag badge">{{sensor.tag}}</span>
+	<div class="sensor-container sensor-status--{{sensor.status}}">
+		<span class="sensor-status badge">{{sensor.status}}</span>
 		<i class="sensor-icon fa fa-wifi fa-5x" aria-hidden="true"></i>️
 
-		<h4 class="sensor-title">{{sensor.title}}</h4>
+		<h4 class="sensor-sensorID">{{sensor.sensorID}}</h4>
 		<button [routerLink]="['/chart', sensor.id]" style="width: 70%; margin-left: auto; margin-right: auto; margin-top: 20px; margin-bottom: 10px;"
 			type="button" class="btn btn-light"><i class="fa fa-bar-chart"></i> Chart</button>
 		<button style="width: 70%; margin-left: auto; margin-right: auto; margin-top: 20px; margin-bottom: 10px;"
 			type="button" class="btn btn-light"><i class="fa fa-bell-o"></i> Alerts</button>
 
 	</div>
-	<span class="sensor-description">{{sensor.description}}</span>
+	<span class="sensor-description">Last seen: {{sensor.date | date}}</span>
 </ng-container>
