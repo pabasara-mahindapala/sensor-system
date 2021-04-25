@@ -32,7 +32,7 @@ interface LinkItem {
 export class NavComponent implements OnInit, OnDestroy {
 	links: LinkItem[] = [
 		// { path: ["/"], title: "Home", activeOptions: { exact: true } },
-		{ path: ["/projects"], title: "Projects" },
+		{ path: ["/sensors"], title: "Sensors" },
 	];
 
 	appTitle = this.appInfo.title;

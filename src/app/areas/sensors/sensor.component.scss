@@ -1,0 +1,106 @@
+@import "mixins";
+@import "vars";
+
+$sensor-bg-color: rgba($black, 0.4) !default;
+$sensor-text-color: $concrete !default;
+$sensor-text-hover-color: $white !default;
+$sensor-icon-hover-color: $primary-highlight-color !default;
+$sensor-description-color: $text-semi-diffuse-color !default;
+
+:host {
+	display: block;
+	position: relative;
+	width: 230px;
+	color: $sensor-text-color;
+	transition: 0.2s ease-in-out;
+
+	&:hover {
+		.sensor {
+			&-container {
+				transition: 0.2s ease-in-out;
+				@include shadow-6dp;
+			}
+
+			&-sensorID {
+				color: $sensor-text-hover-color;
+			}
+
+			&-icon {
+				transition: 0.3s ease-in-out;
+			}
+
+			status {
+				&--Online {
+					.sensor-icon {
+						color: $eucalyptus;
+					}
+				}
+
+				&--Error {
+					.sensor-icon {
+						color: $crimson;
+					}
+				}
+
+				&--Warning {
+					.sensor-icon {
+						color: $amber;
+					}
+				}
+			}
+		}
+	}
+}
+
+.sensor {
+	&-container {
+		padding-top: 1.5em;
+		display: flex;
+		flex-flow: column;
+		text-align: center;
+		border-radius: 5px;
+
+		min-height: 160px;
+		background-color: $sensor-bg-color;
+		@include shadow-4dp;
+	}
+
+	&-sensorID {
+		margin: 0;
+		font-size: $font-size-m;
+	}
+
+	&-description {
+		display: block;
+		color: $sensor-description-color;
+		font-size: $font-size-s;
+		text-align: center;
+
+		margin: 0.5em 0.25em 0;
+		line-height: 18px;
+	}
+
+	&-status {
+		position: absolute;
+		right: 0.25em;
+		top: 0.25em;
+
+		&--Online {
+			.sensor-status {
+				background: $eucalyptus;
+			}
+		}
+
+		&--Error {
+			.sensor-status {
+				background: $crimson;
+			}
+		}
+
+		&--Warning {
+			.sensor-status {
+				background: $amber;
+			}
+		}
+	}
+}
