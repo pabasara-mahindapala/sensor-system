@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Value</th>
+        <th scope="col">Date</th>
+        <th scope="col">Sensor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of alertValues">
+        <td>{{a.id}}</td>
+        <td>{{a.sensorID}}</td>
+        <td>{{a.dataValue}}</td>
+        <td>{{a.date}}</td>
+      </tr>
+    </tbody>
+  </table>
+<div class="form-group">
+    <label for="sensor" style="margin-top: 50px;">Sensor:</label>
+    <select [ngModel]="sensorID" (ngModelChange)="onChange($event)" name="sel2" class="form-control" style="width: 25%;">
+        <option [value]="s" *ngFor="let s of sensorList">{{s}}</option>
+    </select>
+</div>
